@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent any{
+        docker {
+            image 'node:18' // Use official Node.js Docker image
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+
 
     environment {
         DOCKER_IMAGE = "shobana96/devops-node-app"
